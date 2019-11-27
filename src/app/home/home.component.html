@@ -17,7 +17,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" id="cpb-tab" data-toggle="tab" href="#cpb" role="tab" aria-controls="cpb"
-            aria-selected="false">Custom Prop Binding</a>
+            aria-selected="false">Cross Component Communication</a>
     </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -31,7 +31,7 @@
         String Interpolation: <input type="text" value="{{developerName}}">
     </div>
     <div class="tab-pane fade" id="pb" role="tabpanel" aria-labelledby="pb-tab">
-        
+
         <p>Property Binding</p>
         <input type="text" [value]="developerName">
 
@@ -55,13 +55,24 @@
         <input type="text" [value]="courseName">
 
         <br>
-
+        <!-- two way binding -->
         <input type="text" [(ngModel)]="courseName">
-        
 
     </div>
 
     <div class="tab-pane fade" id="cpb" role="tabpanel" aria-labelledby="cpb-tab">
+        <h2>Parent to Child Comp Communication</h2>
+        <p>Using Custom Property Binding</p>
         <app-cpb></app-cpb>
+        <app-cpb [age]="30"></app-cpb> <!-- parent is sending data to child -->
+        <app-cpb [age]="40"></app-cpb> <!-- parent is sending data to child -->
+
+        <h2>Child Parent to Comp Communication</h2>
+        <p>1. Using Custom Property Binding -- child can selectively send data to parent</p>
+        <p>2. Using @ViewChild() -- parent can access child's all data</p>
+        <p>3. Using @ViewChildren() -- parent can access many child components data</p>
+
+        <p>Let's access child's data using @ViewChild()</p>
+        <!-- refer home.comp.ts -->
     </div>
 </div>

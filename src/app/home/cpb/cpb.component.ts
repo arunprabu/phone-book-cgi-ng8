@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cpb',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CpbComponent implements OnInit {
+
+  // for custom property binding
+  @Input() age = 20; // @Input() will make age as property
+
+  someRandomData: any = 'test';
 
   constructor() { }
 

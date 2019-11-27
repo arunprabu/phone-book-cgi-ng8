@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CpbComponent } from './cpb/cpb.component';
 
 // Decorator
 @Component({
@@ -34,9 +35,14 @@ export class HomeComponent implements OnInit {
   // two way binding related
   courseName = 'Angular';
 
+  // accessing child comp's data using @ViewChild and store it in local variable 
+  @ViewChild(CpbComponent, {static: true}) childCompData: any;
+
   constructor() { }
 
   ngOnInit() {
+    // child comp data is in local variable childCompData
+    console.log(this.childCompData);
   }
 
   // event binding related
