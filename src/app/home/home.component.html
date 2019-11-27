@@ -1,0 +1,67 @@
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="si-tab" data-toggle="tab" href="#si" role="tab" aria-controls="si"
+            aria-selected="true">String Interpolation</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pb-tab" data-toggle="tab" href="#pb" role="tab" aria-controls="pb"
+            aria-selected="false">Property Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="eb-tab" data-toggle="tab" href="#eb" role="tab" aria-controls="eb"
+            aria-selected="false">Event Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="twb-tab" data-toggle="tab" href="#twb" role="tab" aria-controls="twb"
+            aria-selected="false">Two Way Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="cpb-tab" data-toggle="tab" href="#cpb" role="tab" aria-controls="cpb"
+            aria-selected="false">Custom Prop Binding</a>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="si" role="tabpanel" aria-labelledby="si-tab">
+        String Interpolation
+        <p>{{ appName }}</p>
+        <p>{{age}}</p>
+        <p>{{isLoggedIn}}</p>
+        <p>{{ skillsList[2] }}</p>
+        <p>String Interpolation: {{ developerName }}</p>
+        String Interpolation: <input type="text" value="{{developerName}}">
+    </div>
+    <div class="tab-pane fade" id="pb" role="tabpanel" aria-labelledby="pb-tab">
+        
+        <p>Property Binding</p>
+        <input type="text" [value]="developerName">
+
+        <div class="redText">Will be in red color</div>
+
+        <!-- Class binding -->
+        <div [ngClass]="{ 'redText': !isLoggedIn, 'greenText': isLoggedIn }">Will it be in red?</div>
+    </div>
+    <div class="tab-pane fade" id="eb" role="tabpanel" aria-labelledby="eb-tab">
+        Event Binding
+
+        <button type="button" onclick="onBtnClick(event)">Click me -- will not work --- check js console</button>
+        <br><br>
+        <button type="button" (click)="onBtnClick($event)">Click me</button>
+    </div>
+    <div class="tab-pane fade" id="twb" role="tabpanel" aria-labelledby="twb-tab">
+        Two Way Binding
+
+        <p>{{courseName}}</p>
+
+        <input type="text" [value]="courseName">
+
+        <br>
+
+        <input type="text" [(ngModel)]="courseName">
+        
+
+    </div>
+
+    <div class="tab-pane fade" id="cpb" role="tabpanel" aria-labelledby="cpb-tab">
+        <app-cpb></app-cpb>
+    </div>
+</div>
