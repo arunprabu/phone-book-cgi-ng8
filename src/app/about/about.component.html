@@ -1,1 +1,18 @@
-<p>about works!</p>
+<div>
+    <h1>Structural Directives</h1>
+    <p>*ngIf</p>
+    <div class="alert alert-danger" *ngIf="!isLoggedIn">
+        <p>Not Logged In.. pls login</p>
+    </div>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+        <p>Wow Logged In</p>
+    </div>
+
+    <p>*ngFor</p>
+    <ul>
+        <li *ngFor="let skill of skillsList">{{ skill }}</li>
+    </ul>
+
+    <p>Todo: Try ngSwitch</p>
+</div>
