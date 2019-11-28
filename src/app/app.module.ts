@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { CpbComponent } from './home/cpb/cpb.component';
 import { AddContactComponent } from './contacts/add-contact/add-contact.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // Main Switching Box
 @NgModule({
@@ -31,7 +32,9 @@ import { ContactDetailComponent } from './contacts/contact-detail/contact-detail
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]   // AppModule should bootstrap a Component
