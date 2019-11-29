@@ -39,18 +39,13 @@ export class AddContactComponent implements OnInit {
     // 2. send the above data to service
     // 2.1 connect to the service
     // 2.2. send the data to the method
-   
-    let status: any = await this.contactService.createContact(this.contactForm.value); // 3. get the resp from service
+    const status: any = await this.contactService.createContact(this.contactForm.value); // 3. get the resp from service
     console.log(status);
 
     // 4. patch it up with html
     if (status && status.id) {
       this.isSaved = true;
     }
-
-
-
-
   }
 
   

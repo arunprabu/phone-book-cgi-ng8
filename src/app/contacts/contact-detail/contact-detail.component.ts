@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ContactDetailComponent implements OnInit {
 
   contactData: any;
+  duplicateContactData: any;
+  isUpdated = false;
 
   constructor( private contactService: ContactService, private activateRoute: ActivatedRoute ) {
  
@@ -26,7 +28,26 @@ export class ContactDetailComponent implements OnInit {
         console.log( res );
         this.contactData = res;
       });
-
   }
 
+  onEditClickHandler() {
+    // duplicate obj
+    this.duplicateContactData  = JSON.parse(JSON.stringify(this.contactData));
+    this.isUpdated = false;
+  }
+
+  async onUpdateHandler( formData ) {
+    console.log(formData); // you can work with the above formData for implementing more validations 
+
+    console.log(this.duplicateContactData);
+
+    const status: any  = await this.contactService.updateContact(this.duplicateContactData);
+    console.log(status);
+    this.contactData = status;
+
+    if (status) {
+      this.isUpdated = true;
+    }
+  }
+  
 }

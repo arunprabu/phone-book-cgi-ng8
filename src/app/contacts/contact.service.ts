@@ -20,7 +20,7 @@ export class ContactService {
       // 2.2. identify the HTTP method: POST
       // 2.3. connect to the rest api using HttpClient
 
-    let createContactPromise = new Promise( ( resolve, reject )  => {
+    const createContactPromise = new Promise( ( resolve, reject )  => {
       this.http.post(this.REST_API_URL, contactData)
         .toPromise()
         .then( (res: any) => {
@@ -65,4 +65,26 @@ export class ContactService {
 
   }
 
+  updateContact( contactData ){
+    console.log(contactData);
+
+    const updateContactPromise = new Promise( (resolve, reject) => {
+      this.http.put(this.REST_API_URL + contactData.id, contactData)
+      .toPromise()
+      .then( (res: any) => {
+        console.log(res);
+        resolve(res);
+      })
+      .catch( (err: any) => {
+        console.log(err);
+        reject(err);
+      })
+      .finally(() => {
+        console.log('Promise over');
+      });
+    });
+
+    return updateContactPromise;
+
+  }
 }

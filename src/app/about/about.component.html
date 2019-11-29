@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h1>Structural Directives</h1>
     <p>*ngIf</p>
     <div class="alert alert-danger" *ngIf="!isLoggedIn">
@@ -15,4 +15,15 @@
     </ul>
 
     <p>Todo: Try ngSwitch</p>
+
+    <h2>Pipes</h2>
+    <p>transform info from one format to another</p>
+
+    <p>{{today}}</p>
+    <p>{{today | date | uppercase  }}</p>
+    <p>{{today | date: 'dd-MMMM-yyyy hh:mm:ss a' }}</p>
+
+    <hr>
+    
+
 </div>

@@ -13,6 +13,8 @@ export class AboutComponent implements OnInit {
     'html', 'css', 'js'
   ];
   
+  today: Date = new Date();
+  
   constructor() { }
 
   ngOnInit() {

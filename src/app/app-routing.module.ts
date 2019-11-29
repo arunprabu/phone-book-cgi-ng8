@@ -5,13 +5,18 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { AboutComponent } from './about/about.component';
 import { AddContactComponent } from './contacts/add-contact/add-contact.component';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 // Step 2 in routing
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'contacts', component: ContactsComponent},
-  { path: 'contacts/add', component: AddContactComponent},
-  { path: 'contacts/:contactId', component: ContactDetailComponent},
+  {
+    path: 'contacts', children: [
+      { path: '', component: ContactsComponent},
+      { path: 'add', component: AddContactComponent, canActivate: [ AuthGuard ]},
+      { path: ':contactId', component: ContactDetailComponent}
+    ]
+  },
   { path: 'about', component: AboutComponent }
 ];
 
