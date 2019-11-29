@@ -19,11 +19,25 @@ export class ContactService {
       // 2.1. identify rest api url: https://jsonplaceholder.typicode.com/users
       // 2.2. identify the HTTP method: POST
       // 2.3. connect to the rest api using HttpClient
-    return this.http.post(this.REST_API_URL, contactData)
-        .pipe( map( (res: any) => { // 3. get the resp from rest api
+
+    let createContactPromise = new Promise( ( resolve, reject )  => {
+      this.http.post(this.REST_API_URL, contactData)
+        .toPromise()
+        .then( (res: any) => {
           console.log(res);
-          return res; // 4. send the resp back to comp
-        }));
+          resolve(res);
+        })
+        .catch( (err: any) => {
+          console.log(err);
+          reject(err);
+        })
+        .finally(() => {
+          console.log('Promise over');
+        });
+    });
+
+    return createContactPromise;
+
   }
 
   getContacts() { // 1. get the req from comp

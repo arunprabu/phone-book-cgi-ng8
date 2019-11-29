@@ -32,21 +32,29 @@ export class AddContactComponent implements OnInit {
     // Step3: Patch up HTML form with TS form -- ref html
   }
 
-  onContactFormSubmitHandler() {
+  async onContactFormSubmitHandler() {
     // 1. capture the form data in ts
     console.log(this.contactForm.value);
 
     // 2. send the above data to service
     // 2.1 connect to the service
     // 2.2. send the data to the method
-    this.contactService.createContact(this.contactForm.value)
-      .subscribe( (res: any) => { // 3. get the resp from service
-        console.log(res);
-        // 4. patch it up with html
-        if (res && res.id) {
-          this.isSaved = true;
-        }
-      });
+   
+    let status = await this.contactService.createContact(this.contactForm.value);
+    console.log(status);
+
+
+    // this.contactService.createContact(this.contactForm.value)
+    //   .subscribe( (res: any) => { // 3. get the resp from service
+    //     console.log(res);
+    //     // 4. patch it up with html
+    //     if (res && res.id) {
+    //       this.isSaved = true;
+    //     }
+    //   });
+
+
+
   }
 
   

@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class ContactsComponent implements OnInit, OnDestroy {
 
   contactList: any[] = [];
-  contactsSubscription: Subscription;
+  contactsSubscription: Subscription;  
 
   constructor( private contactService: ContactService) {
     console.log('Inside Constructor');
@@ -29,8 +29,8 @@ export class ContactsComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(){
-    // ideal place for unsubscribe, remove data, empty array 
+  ngOnDestroy() {
+    // ideal place for unsubscribe, remove data, empty array
     console.log('inside destroy');
     this.contactsSubscription.unsubscribe();
 
