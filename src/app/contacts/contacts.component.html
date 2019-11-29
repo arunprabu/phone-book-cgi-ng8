@@ -8,7 +8,7 @@
         </section>
     </div>
 
-    <div class="row" *ngIf="contactList">
+    <div class="row" *ngIf="(contactList && contactList.length > 0);else NoContactsFoundWrapper">
         <div class="card col-sm-3" *ngFor="let contact of contactList">
             <div class="card-body">
                 <h5 class="card-title">{{contact.name}}</h5>
