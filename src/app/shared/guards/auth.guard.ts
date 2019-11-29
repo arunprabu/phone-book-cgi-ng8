@@ -13,5 +13,4 @@ export class AuthGuard implements CanActivate {
     // beforse sending false, redirect to login page
     return false;
   }
-  
 }
